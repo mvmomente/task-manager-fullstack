@@ -27,4 +27,11 @@ Aplicação fullstack para gerenciamento de tarefas com autenticação de usuár
 
 1. Vá até a pasta `backend/`
 2. Instale as dependências:
+3. Inicie o servidor:
+4. Acesse `http://localhost:3000/`
+
+---
+
+*Projeto em desenvolvimento.*
+
 
