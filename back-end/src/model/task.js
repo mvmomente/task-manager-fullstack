@@ -1,4 +1,4 @@
-import { db } from '../db/index.js'
+import { db } from '../db/db.js'
 
 export const createTask = (({title, description, user_id}) => {
     return new Promise((resolve, reject) => {

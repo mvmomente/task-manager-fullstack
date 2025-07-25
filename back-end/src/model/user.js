@@ -1,4 +1,4 @@
-import { db } from '../db/index.js'
+import { db } from '../db/db.js'
 
 export const createUser = ({name, email, password}) => {
     return new Promise((resolve, reject) => {
