@@ -1,6 +1,6 @@
 import { createUser, deleteUser, getUsers, updateUser } from '../model/user.js';
 
-export const createUserController = async (req, res) => {
+export const userCreate = async (req, res) => {
     const {name, email, password } = req.body;
 
     try {
@@ -11,7 +11,7 @@ export const createUserController = async (req, res) => {
     }
 };
 
-export const getUsersController = async (req, res) => {
+export const userList = async (req, res) => {
     try {
         const users = await getUsers();
 
@@ -25,13 +25,13 @@ export const getUsersController = async (req, res) => {
     }
 }
 
-export const deleteUserController = async (req, res) => {
+export const userDelete = async (req, res) => {
     const userId = req.params.id;
 
     try {
-        const userDelete = await deleteUser(userId);
+        const user = await deleteUser(userId);
 
-        if (userDelete > 0) {
+        if (user > 0) {
             res.status(200).json({message: 'Usuário deletado.'})
         } else {
             res.status(404).json({message: 'Nenhum usuário encontrado.'})
@@ -41,7 +41,7 @@ export const deleteUserController = async (req, res) => {
     }
 }
 
-export const updateUserController = async (req, res) => {
+export const userUpdate = async (req, res) => {
 
     try {
         const {name, email, password} = req.body;
