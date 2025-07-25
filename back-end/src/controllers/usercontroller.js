@@ -34,7 +34,7 @@ export const deleteUserController = async (req, res) => {
         if (userDelete > 0) {
             res.status(200).json({message: 'Usuário deletado.'})
         } else {
-            res.status(404).son({message: 'Nenhum usuário encontrado.'})
+            res.status(404).json({message: 'Nenhum usuário encontrado.'})
         }
     } catch (error) {
         res.status(500).json({message: 'Erro ao deletar o usuário', error: error.message});
@@ -42,14 +42,13 @@ export const deleteUserController = async (req, res) => {
 }
 
 export const updateUserController = async (req, res) => {
-    const userId = req.params.id;
 
     try {
         const {name, email, password} = req.body;
-        const updateUserr = await updateUser({id: userId, name, email, password});
+        const userId = await updateUser({id: req.params.id, name, email, password});
 
-        if (updateUserr > 0) {
-            res.status(201).json({id: userId, message: 'Usuário alterado com sucesso.'})
+        if (userId > 0) {
+            res.status(200).json({id: userId, message: 'Usuário alterado com sucesso.'})
         } else {
             res.status(404).json({id: userId, message: 'Nenhum usuário encontrado.'})
         }
